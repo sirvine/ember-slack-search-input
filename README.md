@@ -81,23 +81,13 @@ Currently two types of modifiers are supported `list` and `date`:
   * Date - Date picker popup is showed when modifier is active.
   * List - List is simple list of possible options
 
-## Deserialize Query String
-Once you got query string, you can deserialze it to object.
+## Handling Search Action
 
 ```javascript
-  import { deserializeQueryString } from `ember-slack-search-input`;
-
-
-  search() {
-    let queryString = get(this, 'queryString');
-    console.log(queryString) // `before:2000-23-23 lorem`
-    let modifiers = deserializeQueryString(queryString);
-    let before = modifiers['before:'];
-    let { model, fullText, modifier, value } = before[0]; //first occurance of `before:`
-    console.log(model); // moment date
-    console.log(fullText); // before:2000-23-23
-    console.log(modifier); // before:
-    console.log(value); // 2000-23-23
+  search(queryString, tokens) {
+    console.log(queryString);
+    // ...
+    // Handle the query
   }
 ```
 
