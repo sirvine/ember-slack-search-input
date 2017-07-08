@@ -97,7 +97,7 @@ export function tokenize(text, configHash) {
   return tokens;
 }
 
-export function prepareConig(configHash) {
+export function prepareConfig(configHash) {
   let modifiers = getAllModifiers(configHash);
   configHash['+'] = { type: 'modifier-list', content: modifiers };
   configHash['_default'] = {
@@ -109,7 +109,6 @@ export function prepareConig(configHash) {
 export function deserializeQueryString(string, configHash) {
   return sanitizeTokens(tokenize(string, configHash));
 }
-
 
 export function getMatch(subString, array, key) {
   return array

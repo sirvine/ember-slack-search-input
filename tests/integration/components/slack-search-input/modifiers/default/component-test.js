@@ -1,9 +1,9 @@
 import Token from 'ember-slack-search-input/token';
-import { prepareConig } from 'ember-slack-search-input/util';
+import { prepareConfig } from 'ember-slack-search-input/util';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-const configHash = prepareConig({
+const configHash = prepareConfig({
  "after:": {
    type: 'date',
    defaultHint: 'a date',

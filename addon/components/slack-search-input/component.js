@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import Token from '../../token';
 import layout from './template';
-import { setCursor, KEYS, tokenize, prepareConig, sanitizeToken } from '../../util';
+import { setCursor, KEYS, tokenize, prepareConfig, sanitizeToken, deserializeQueryString } from '../../util';
 
 const { set, on, run, computed, get } = Ember;
 
@@ -26,7 +26,7 @@ export default Ember.Component.extend({
   }),
 
   tokenConfig: computed('configHash', function() {
-    return prepareConig(get(this, 'configHash'));
+    return prepareConfig(get(this, 'configHash'));
   }),
 
   excludedTokenTypes: ['default', 'modifier-list', 'space'],
@@ -233,7 +233,9 @@ export default Ember.Component.extend({
         e.preventDefault();
         this.toggleProperty('enterClicked');
         if (!get(this, 'isPopupFocused') && this.attrs.enter) {
-          this.attrs.enter();
+          let config = get(this, 'tokenConfig');
+          let tokens = tokenize(value, config);
+          this.attrs.enter(target.value, tokens);
         }
       } else if (keyCode === KEYS.ESC) {
         e.preventDefault();

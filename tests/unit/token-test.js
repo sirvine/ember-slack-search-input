@@ -1,10 +1,10 @@
 import Token from 'ember-slack-search-input/token';
-import { prepareConig } from 'ember-slack-search-input/util';
+import { prepareConfig } from 'ember-slack-search-input/util';
 import { module, test } from 'qunit';
 
 module('Unit | Token');
 
-const configHash = prepareConig({
+const configHash = prepareConfig({
  "before:": {
    type: 'date',
    defaultHint: 'a date',
