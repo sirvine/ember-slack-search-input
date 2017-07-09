@@ -77,7 +77,7 @@ export default Ember.Component.extend({
     let hints = get(this, 'token.hints');
     if (!hints) { return []; }
     let list = hints
-      .reduce(function (sum, listItem) {
+      .reduce(function(sum, listItem) {
         let section = listItem.section;
         if (section) {
           if (sum[section]) {
@@ -93,7 +93,7 @@ export default Ember.Component.extend({
 
     let listArray = [];
     for (let key in list) {
-      listArray.push({ section: key, list: list[key] });
+      listArray.push({ section: key, list: list[key].sortBy('value') });
     }
     listArray.findBy('section', 'untitled').section = '';
     let t = 0;
