@@ -12,7 +12,7 @@
   <ul class='slack-search-input-list'>
     {{#each listItem.list as |item|}}
       <li onmousedown={{action 'selectItem' item.index}} class='{{if (eq item.index currentIndex) "current"}}'>
-        <b>{{item.value}}</b> <span class='modifier-value'>{{item.label}}</span>
+        <b>{{item.label}}</b> <span class='modifier-value'>{{item.value}}</span>
       </li>
     {{/each}}
   </ul>
