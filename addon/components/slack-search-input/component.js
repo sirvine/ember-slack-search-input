@@ -16,6 +16,7 @@ export default Ember.Component.extend({
   downClicked: false,
   isPopupHidden: false,
   isPopupFocused: false, // when popup focused not triggering enter event when enter clicked
+  dataTestSelector: 'slack-search-input',
 
   configHash: {},
   firstTimeFocus: true,

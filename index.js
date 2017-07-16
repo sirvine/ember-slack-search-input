@@ -20,5 +20,9 @@ module.exports = {
       bowerDir,
       'eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
     ));
+  },
+
+  isDevelopingAddon: function() {
+    return true;
   }
 };
